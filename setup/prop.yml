@@ -1,0 +1,16 @@
+cfapi: api.sys.pcflab.jp
+cfadmin: admin
+cfadminpass: UwTsjmyAhanMQO0_pvDWanA4lJtDG37g
+students: 10
+orgnamebase: handson-student
+usernamebase: student
+spacename: development
+studentpass: mN2pbLPK
+ciadmin: ciadmin
+ciadminpass: NZNRfg0r6crUroqxElxWj-HT-NURmZl
+flag: rollback
+#flag: no
+cihost: http://ci.pcflab.jp
+pksadminsecret: JdSAiah1ZLHTfbEoLLLa_qJLJlXTQKRn #PKS UAA management admin client 
+pksadmin: admin
+pksapi: api.pks.pcflab.jp:8443
