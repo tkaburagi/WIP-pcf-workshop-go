@@ -1,61 +1,20 @@
-## バックエンドサービスRedisの利用 (Java編)
+## バックエンドサービスRedisの利用 (Go編)
 
 次はサービスを使ってみましょう。今回はサービスとしてRedisを使います。
 
 ### プロジェクト作成
 
-先ほどの`hello-cf`とは別のアプリケーションをクローンします。
-workspaceのディレクトリにいることを確認してください。
+先ほどの`hello-cfgo`とは別のアプリケーションを作成します。
 
 ``` console
-$ pwd 
-path/to/workspace
-$ git clone https://github.com/tkaburagi/hello-redis
-$ cd hello-redis
+$ mkdir -p $GOPATH/src/github.com/pcf-ws/hello-redis
+$ cd $GOPATH/src/github.com/pcf-ws/hello-redis
+$ dep init
 ```
 
-クローンされたプロジェクトの`hello-redis/src/main/java/com/example/HelloRedisApplication.java`を以下のように書き換えてください。
+`main.go`という名前のファイルを作り、以下のように編集します。
+``` go
 
-``` java
-package com.example;
-
-import java.time.OffsetDateTime;
-
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cache.annotation.Cacheable;
-import org.springframework.cache.annotation.EnableCaching;
-import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-@SpringBootApplication
-@RestController
-@EnableCaching // キャッシュ機能を有効にします
-public class HelloRedisApplication {
-	private final Greeter greeter;
-
-	public HelloRedisApplication(Greeter greeter) {
-		this.greeter = greeter;
-	}
-
-	@GetMapping("/")
-	String hello() {
-		return greeter.hello();
-	}
-
-	public static void main(String[] args) {
-		SpringApplication.run(HelloRedisApplication.class, args);
-	}
-}
-
-@Component
-class Greeter {
-	@Cacheable("hello") // 実行結果をキャッシュします
-	public String hello() {
-		return "Hello. It's " + OffsetDateTime.now() + " now.";
-	}
-}
 ```
 
 
@@ -95,7 +54,7 @@ Getting services in org tmaki / space development as ****@gmail.com...
 OK
 
 name      service      plan   bound apps   last operation   
-myredis   p-redis      shared-vm                create succeeded 
+myredis   p-redis      shared-vm                create succeeded
 ```
 
 **ここまで完了したら進捗シートにチェックをしてください。**

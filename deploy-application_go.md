@@ -1,12 +1,12 @@
 ## 簡単なアプリケーションをデプロイ (Go編)
 
-とても簡単なGoのWebアプリケーションを作成 & デプロイしましょう。
+とても簡単なGoのWebアプリケーションを作成 & デプロイしましょう。ここでは、パッケージマネージャの`Godep`がインストールされていることを前提としています。
 
 ### プロジェクトの作成
 
 ``` console
-$ mkdir -p $GOPATH/hello-cfgo
-$ cd $GOPATH/hello-cfgo
+$ mkdir -p $GOPATH/src/github.com/pcf-ws/hello-cfgo
+$ cd $GOPATH/src/github.com/pcf-ws/hello-cfgo
 $ dep init
 ```
 hello-cfgo のディレクトリに任意のエディタで`main.go`のファイルを作り以下のように編集をします。
